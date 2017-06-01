@@ -5,60 +5,67 @@ In this exercise we will work on connecting to a database hosted on Amazon Web S
 ## Step 1: Connecting to the DSSG tutorial database
 
 #### Download software
-We will use the [pgAdmin](https://www.pgadmin.org/download/) software to connect to the database.
+We will use the [DBeaver](http://dbeaver.jkiss.org/download/) software to connect to the database.
 
-* Windows - [click here](https://www.postgresql.org/ftp/pgadmin3/release/v1.22.1/win32/) and download pgadmin3-1.22.1.zip to install the application
+* Windows - [click here](http://dbeaver.jkiss.org/files/dbeaver-ce-latest-x86_64-setup.exe) and download the file to install the application
 
-* Mac OSX - [click here](https://www.postgresql.org/ftp/pgadmin3/release/v1.22.1/osx/) and download the file pgadmin3-1.22.1.dmg to install the application
+* Mac OSX - [click here](http://dbeaver.jkiss.org/files/dbeaver-ce-latest-macos.dmg) and download the file to install the application
 
-* Linux - sudo apt-get install pgadmin3
+* Linux - [click here](http://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb) and download the file to install the application
 
-Start pgAdmin.
+Start DBeaver.
 
 #### Connect to the database
 
-1. click on the connection icon:
+1. Click on the database icon:
 <br><br>
-<img src="images/toolbar.png" width = "400" border = "10">
+<img src="images/toolbar1.png" width = "400" border = "10">
 <br><br><br><br>
-2. fill in the connection information. 
-* The host name is: dssg2016.csya4zsfb6y4.us-east-1.rds.amazonaws.com
-* The port is: 5432
-* The username is: dssg_student
-* The password is: dssg2016
+2. Search `postgresql` as connection type.
 <br><br>
-<img src="images/connection.PNG" width="400"> 
+<img src="images/searchpostgres.PNG" width="400">
 <br><br><br><br>
-3. Click "OK". You will see the following. We only need to access the tables (see blue arrow), so click to expand that.
+3. Fill in the connection information.
+
+- The host name is: someurl.amazonaws.com
+- The port is: 5432
+- The username is: some_username
+- The password is: somepassword
 <br><br>
-<img src="images/dbview.png" width = "400" border = "1">
+<img src="images/connection1.PNG" width="400">
 <br><br><br><br>
-4. Continue to expand to see all the columns of the "seattlecrimeincidents" table:
+4. Click `Test Connection ...` to ensure that you have entered the correct credentials.
 <br><br>
-<img src="images/fullView.png" width = "600" border = "1">
+5. You might get prompted with the download driver files window if this is your first time using postgresql.
+Click on Download and follow the instructions.
+<br><br>
+<img src="images/driverinstall.PNG" width="400">
 <br><br><br><br>
-5. Most of the pgadmin interface contains information on the structure of the data tables (e.g. column names), but where are the actual data? Let's take a look: 
-* Right click on the "seattlecrimeincidents" table, choose "View Data" and then "View Top 100 Rows" or "View Bottom 100 Rows" (Note: don't choose "View All Rows" because this will take a long time to load given the large size of the table).
-<br>
-<img src="images/viewingData.png" width = "400" border = "10">
-<br>
-A new window should appear allowing you to browse through some of the data. Take some time to become familiar with the contents of the table.
-<br>
-6. For future reference, these instructions are also summarized on [this AWS tutorial page](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html) 
+6. If everything is connected you will get a success message.
+<br><br>
+<img src="images/serversuccess.PNG" width="400">
+<br><br><br><br>
+7. Keep pressing next on the connection window, until finish. Once you are through, you will see the following when expanded.
+We only need to access the tables. Double click on `seattlecrimeincidents` table, then to `Data` tab so see the data.
+Take some time to become familiar with the contents of the table.
+<br><br>
+<img src="images/viewdata.PNG" width = "600" border = "1">
+<br><br><br><br>
 
 ## Step 2: Issuing your first queries
 
-* Queries can be issued to the database in many different ways. Here we'll use the SQL query window in pg_admin. This is a great way to test out ideas before implementing your SQL queries in a script.
+Queries can be issued to the database in many different ways. Here we'll use the SQL query window in pg_admin. This is a great way to test out ideas before implementing your SQL queries in a script.
+
 <br>
-1. click on the "Execute Arbitrary SQL Queries" button:
+1. click on the "SQL Editor" button:
 <br><br>
-<img src="images/toolbarSQL.png" width = "400" border = "10">
+<img src="images/sqleditor1.png" width = "400" border = "10">
 <br><br>
-2. This should bring up a new window: 
+2. This should bring up a new tab:
 <br><br>
-<img src="images/SQLeditor.png" width = "400" border = "10">
+<img src="images/sqleditorview.png" width = "400" border = "10">
 <br><br>
-The upper pane is where we will issue our query, and the results of the query will be shown in the output pane below.
+The upper pane is where we will issue our query, and the results of the query will be shown in the results pane below.
 <br><br>
 3. Submit your first query by typing the following into the SQL pane:
 <br><br>
@@ -69,7 +76,7 @@ SELECT * FROM seattlecrimeincidents LIMIT 100;
 <br><br>
 __NOTE:__ The "LIMIT" command restricts the database to return only the first 100 rows.
 <br>
-* the "*" is a wildcard requesting all columns from the database. 
+* the `*` is a wildcard requesting all columns from the database.
 <br><br>
 
 For example, we can apply the count function to all the columns:
