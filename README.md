@@ -1,6 +1,6 @@
-## DSSG 2016
+## DSSG 2017
 
-#### course content for SQL Tutorial, Friday June 17
+#### Course content for SQL Tutorial, Tuesday June 20
 
 #### Content
 
@@ -16,6 +16,5 @@
     * [Exercise 7](Exercise7.md)
 
 * [Exercise Solutions](exercise_queries.sql)
-   
-<br>
-[link to google drive folder](https://drive.google.com/folderview?id=0B_TnQJg_3wjpbml3Z01WbEJOYWs&usp=sharing)
+
+[link to data folder](https://drive.google.com/folderview?id=0B_TnQJg_3wjpbml3Z01WbEJOYWs&usp=sharing)
